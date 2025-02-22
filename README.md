@@ -1,1 +1,1 @@
-# codingcourse
+# Course
