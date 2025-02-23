@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Lesson 3: DOM Manipulation, Event Handling, and Form Validation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .example {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 20px 0;
+      background: #f9f9f9;
+    }
+    .example button {
+      margin: 5px;
+    }
+    .example input {
+      margin: 5px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="main-heading">JavaScript Lesson 3: DOM Manipulation, Event Handling, and Form Validation</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+    </nav>
+  </header>
+  <main>
+    <h2>DOM Manipulation</h2>
+    <p>
+      The Document Object Model (DOM) is a structured representation of an HTML document. The browser creates this structure automatically when a webpage loads. Think of the DOM as a tree where each HTML element is a node in this tree.
+    </p>
+
+    <h3>What is a Tree?</h3>
+    <p>
+      A tree is a way to organize information in a hierarchical structure. In a tree:
+    </p>
+    <ul>
+      <li><strong>Nodes</strong>: Each item in the tree is called a node. For example, in the DOM, every HTML element (like <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, or <code>&lt;button&gt;</code>) is a node.</li>
+      <li><strong>Parent and Child</strong>: Nodes can have relationships. A <strong>parent</strong> node is one that contains other nodes, and a <strong>child</strong> node is one that is contained within another node. For example, in the HTML below:
+        <pre>
+&lt;div&gt;
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;button&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;
+        </pre>
+        The <code>&lt;div&gt;</code> is the parent of the <code>&lt;p&gt;</code> and <code>&lt;button&gt;</code>, and the <code>&lt;p&gt;</code> and <code>&lt;button&gt;</code> are children of the <code>&lt;div&gt;</code>.
+      </li>
+      <li><strong>Root</strong>: The topmost node in the tree is called the root. In the DOM, the <code>&lt;html&gt;</code> element is the root.</li>
+    </ul>
+
+    <h2>Parent-Child Relationships in the DOM</h2>
+
+<h3>Example: Shopping List</h3>
+<p>
+  A simple example is a <strong>shopping list</strong>, where:
+</p>
+<ul>
+  <li>The <code>&lt;ul&gt;</code> (unordered list) is the <strong>parent</strong>.</li>
+  <li>Each <code>&lt;li&gt;</code> (list item) inside it is a <strong>child</strong>.</li>
+  <li>We can <strong>add</strong> and <strong>remove</strong> children dynamically using JavaScript.</li>
+</ul>
+
+<h3>Key Methods</h3>
+<ul>
+  <li><code>parent.appendChild(child)</code> → <strong>Adds</strong> a child element to a parent.</li>
+  <li><code>parent.removeChild(child)</code> → <strong>Removes</strong> a child element from a parent.</li>
+</ul>
+
+<h3>How It Works</h3>
+<p>
+  When you add an item to the shopping list, a new <code>&lt;li&gt;</code> is created and <strong>appended</strong> to the <code>&lt;ul&gt;</code>.  
+  Clicking "Remove" will <strong>remove</strong> that <code>&lt;li&gt;</code> from the parent.
+</p>
+
+<p>
+  This concept is <strong>essential</strong> for interactive web pages, allowing dynamic content updates, to-do lists, form validation, and more!
+</p>
+
+
+
+    <h3>The DOM Tree</h3>
+    <p>
+      The DOM tree is a hierarchical structure that represents the HTML document. Each element in the HTML document is a node in this tree. Here's an example of what a DOM tree might look like:
+    </p>
+    <pre>
+Document
+├── html
+│   ├── head
+│   ├── body
+│       ├── h1
+│       ├── p
+│       ├── div (container)
+│           ├── p (inside div)
+│           ├── button
+    </pre>
+    <p>
+      Each of these elements can be accessed, changed, or removed using JavaScript. This allows you to dynamically update the content, style, or structure of a webpage.
+    </p>
+
+    <h3>How to Access Elements</h3>
+    <p>
+      You can use JavaScript to access and modify elements in the DOM using various methods. Here are some common methods:
+    </p>
+    <ul>
+      <li><code>document.getElementById("id")</code> - Selects an element by its unique ID.</li>
+      <li><code>document.querySelector("selector")</code> - Selects the first element that matches a CSS selector.</li>
+      <li><code>document.createElement("tag")</code> - Creates a new HTML element.</li>
+      <li><code>document.getElementsByClassName("class")</code> - Selects all elements with a specific class name.</li>
+      <li><code>document.getElementsByTagName("tag")</code> - Selects all elements with a specific tag name.</li>
+    </ul>
+    <p>
+      These methods allow you to find and manipulate elements in the DOM. For example, you can change the text inside a paragraph, add a new button, or change the color of a heading.
+    </p>
+
+    <h3>Example: DOM Manipulation</h3>
+    <div class="example">
+      <p id="example-text">This is some example text.</p>
+      <button onclick="changeText()">Change Text</button>
+      <button onclick="changeColor()">Change Color</button>
+      <button onclick="addParagraph()">Add Paragraph</button>
+    </div>
+
+    <h4>HTML</h4>
+    <pre><code>
+&lt;p id="example-text"&gt;This is some example text.&lt;/p&gt;
+&lt;button onclick="changeText()"&gt;Change Text&lt;/button&gt;
+&lt;button onclick="changeColor()"&gt;Change Color&lt;/button&gt;
+&lt;button onclick="addParagraph()"&gt;Add Paragraph&lt;/button&gt;
+    </code></pre>
+
+    <h4>JavaScript</h4>
+    <pre><code>
+function changeText() {
+  document.getElementById("example-text").textContent = "The text has been changed!";
+}
+
+function changeColor() {
+  document.getElementById("example-text").style.color = "red";
+}
+
+function addParagraph() {
+  let newParagraph = document.createElement("p");
+  newParagraph.textContent = "This is a new paragraph!";
+  document.querySelector(".example").appendChild(newParagraph);
+}
+    </code></pre>
+
+    <h2>Event Handling</h2>
+    <p>
+      Events are actions that happen in the browser, such as clicks, mouse movements, or keyboard input. You can use JavaScript to respond to these events.
+    </p>
+
+    <h3>Example: Event Handling</h3>
+    <div class="example">
+      <button id="alert-button">Click Me</button>
+      <button id="color-button">Change Background Color</button>
+    </div>
+
+    <h4>HTML</h4>
+    <pre><code>
+&lt;button id="alert-button"&gt;Click Me&lt;/button&gt;
+&lt;button id="color-button"&gt;Change Background Color&lt;/button&gt;
+    </code></pre>
+
+    <h4>JavaScript</h4>
+    <pre><code>
+document.getElementById("alert-button").addEventListener("click", function () {
+  alert("Button clicked!");
+});
+
+document.getElementById("color-button").addEventListener("click", function () {
+  document.body.style.backgroundColor = "lightblue";
+});
+    </code></pre>
+
+    <h2>Video Tutorial</h2>
+    <p>Watch this video to reinforce your understanding of DOM manipulation and event handling:</p>
+    <iframe src="https://www.youtube.com/embed/NO5kUNxGIu0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+    <h2>Form Validation</h2>
+    <p>
+      Form validation ensures that user input is correct before submitting it. You can use JavaScript to check for errors and display messages.
+    </p>
+
+    <h3>Example: Form Validation</h3>
+    <div class="example">
+      <form id="example-form">
+        <input type="text" id="example-input" placeholder="Enter something">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <h4>HTML</h4>
+    <pre><code>
+&lt;form id="example-form"&gt;
+  &lt;input type="text" id="example-input" placeholder="Enter something"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+    </code></pre>
+
+    <h4>JavaScript</h4>
+    <pre><code>
+document.getElementById("example-form").addEventListener("submit", function (event) {
+  let input = document.getElementById("example-input").value;
+  if (input.trim() === "") {
+    alert("Please enter a value!");
+    event.preventDefault(); // Prevent form submission
+  }
+});
+    </code></pre>
+
+    <h2>Exercises</h2>
+    <p>Practice what you've learned with these exercises:</p>
+
+    <h3>Exercise 5: Simple Task Tracker</h3>
+    <p>
+      Build a simple task tracker that allows you to:
+    </p>
+    <ul>
+      <li>Add tasks to a list.</li>
+      <li>Display tasks in a list.</li>
+      <li>Validate the input to ensure it's not empty.</li>
+    </ul>
+    <p><strong>Instructions:</strong></p>
+    <ol>
+      <li>Create a form with an input field and a submit button.</li>
+      <li>Add an unordered list to display the tasks.</li>
+      <li>Write JavaScript to:
+        <ul>
+          <li>Prevent the form from submitting if the input is empty.</li>
+          <li>Add the task to the list if the input is valid.</li>
+          <li>Clear the input field after adding a task.</li>
+        </ul>
+      </li>
+    </ol>
+    <p><strong>Expected Output:</strong></p>
+    <ul>
+      <li>Tasks are added to the list when the form is submitted.</li>
+      <li>An alert is shown if the input field is empty.</li>
+    </ul>
+
+    <h3>Exercise 6: To-Do List Application</h3>
+    <h4>NOTE: When writing the javascript code, you can pick between the easy OR hard version</h4>
+    <p>
+      Build a more advanced To-Do List App that allows you to:
+    </p>
+    <ul>
+      <li>Add tasks to a list.</li>
+      <li>Mark tasks as completed.</li>
+      <li>Delete tasks from the list.</li>
+    </ul>
+    <p><strong>Instructions:</strong></p>
+    <ol>
+      <li>Create a form with an input field and a submit button.</li>
+      <li>Add an unordered list to display the tasks.</li>
+      <li>Write JavaScript to:
+        <ul>
+          <li>Prevent the form from submitting if the input is empty.</li>
+          <li>Add the task to the list if the input is valid.</li>
+          <li>Add a "Complete" button to mark tasks as completed (strikethrough).</li>
+          <li>Add a "Delete" button to remove tasks from the list.</li>
+          <li>Clear the input field after adding a task.</li>
+        </ul>
+      </li>
+    </ol>
+    <p><strong>Expected Output:</strong></p>
+    <ul>
+      <li>Tasks are added to the list when the form is submitted.</li>
+      <li>Tasks can be marked as completed or deleted.</li>
+      <li>An alert is shown if the input field is empty.</li>
+    </ul>
+
+    <video width="640" height="360" autoplay loop muted>
+      <source src="todolist.mp4" type="video/mp4">
+    </video>    
+
+    <p>Download the exercises and starter code from the <a href="https://github.com/earnwong/javascript-basics-course" target="_blank">GitHub Repository</a>.</p>
+  </main>
+  <script src="lesson3.js"></script>
+</body>
+</html>

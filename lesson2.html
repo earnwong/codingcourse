@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Lesson 2: Arrays, Objects, Loops, and Functions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>JavaScript Lesson 2: Arrays, Objects, Loops, and Functions</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Arrays</h2>
+    <p>
+      Arrays are used to store lists of data. You can access, add, or remove items from an array.
+    </p>
+    <pre><code>
+let fruits = ["Apple", "Banana", "Orange"];
+console.log(fruits[0]); // Output: Apple
+fruits.push("Mango");   // Add an item
+console.log(fruits);    // Output: ["Apple", "Banana", "Orange", "Mango"]
+    </code></pre>
+
+    <h2>Objects</h2>
+    <p>
+      Objects are used to store key-value pairs. They are great for representing real-world entities.
+    </p>
+    <pre><code>
+let person = { 
+  name: "John",
+  age: 15,
+  isStudent: true
+};
+console.log(person.name); // Output: John
+person.age = 16;         // Update a property
+console.log(person.age); // Output: 16
+    </code></pre>
+
+    <h2>Video Tutorial</h2>
+    <p>Watch this video to reinforce your understanding Objects:</p>
+    <!-- Embed the YouTube video -->
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/lo7o91qLzxc" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+
+    <h2>Loops</h2>
+    <p>
+      Loops allow you to repeat a block of code multiple times. The most common loops are <code>for</code> and <code>while</code>.
+    </p>
+    <pre><code>
+// For loop
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+// While loop
+let count = 0;
+while (count < 3) {
+  console.log("Count: " + count);
+  count++;
+}
+    </code></pre>
+
+    <h2>Functions</h2>
+    <p>
+      Functions are reusable blocks of code that perform a specific task. They can take inputs (parameters) and return outputs.
+    </p>
+    <pre><code>
+// Function declaration
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+console.log(greet("John")); // Output: Hello, John!
+
+// Arrow function (modern syntax)
+const add = (a, b) => a + b;
+console.log(add(2, 3)); // Output: 5
+    </code></pre>
+
+    <h2>Exercises</h2>
+    <p>Practice what you've learned with these exercises:</p>
+    <ol>
+      <li><strong>Array Practice</strong>:
+        <ul>
+          <li>Create an array of your favorite movies.</li>
+          <li>Add a new movie to the array.</li>
+          <li>Log the first movie in the array to the console.</li>
+        </ul>
+      </li>
+      <li><strong>Object Practice</strong>:
+        <ul>
+          <li>Create an object to represent a book with properties like <code>title</code>, <code>author</code>, and <code>year</code>.</li>
+          <li>Log the book's title to the console.</li>
+          <li>Update the book's year and log the updated object.</li>
+        </ul>
+      </li>
+      <li><strong>Loop Practice</strong>:
+        <ul>
+          <li>Use a <code>for</code> loop to log numbers from 1 to 10.</li>
+          <li>Use a <code>while</code> loop to log numbers from 10 to 1.</li>
+        </ul>
+      </li>
+      <li><strong>Function Practice</strong>:
+        <ul>
+          <li>Write a function that takes two numbers and returns their sum.</li>
+          <li>Write a function that takes a name and returns a greeting message.</li>
+        </ul>
+      </li>
+    </ol>
+    <p>Download the exercises and starter code from the <a href="https://github.com/earnwong/javascript-basics-course" target="_blank">GitHub Repository</a>.</p>
+
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>
