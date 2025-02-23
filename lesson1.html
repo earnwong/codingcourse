@@ -30,4 +30,84 @@
       JavaScript can be added to a webpage in three ways:
     </p>
     <ol>
-      <li><strong>Inline Script</strong>: Directly inside an HTML element (not recommended for large scr
+      <li><strong>Inline Script</strong>: Directly inside an HTML element (not recommended for large scripts).</li>
+      <li><strong>Internal Script</strong>: Inside a <code>&lt;script&gt;</code> tag in the HTML file.</li>
+      <li><strong>External Script</strong>: Linking to an external <code>.js</code> file (recommended).</li>
+    </ol>
+
+    <h2>Your First JavaScript Code</h2>
+    <p>Let's write a simple script that displays a message in the browser console.</p>
+    <pre><code>
+// This is a comment. It won't be executed.
+console.log("Hello, JavaScript!");
+    </code></pre>
+    <p>Open the browser console (right-click > Inspect > Console) to see the output.</p>
+
+    <h2>Variables</h2>
+    <p>
+      Variables are used to store data. In JavaScript, you can declare variables using:
+    </p>
+    <ul>
+      <li><code>let</code>: For variables that can change.</li>
+      <li><code>const</code>: For variables that cannot change.</li>
+    </ul>
+    <pre><code>
+let name = "John"; // This can be changed later
+const age = 15;    // This cannot be changed
+console.log(name);  // Output: John
+console.log(age);   // Output: 15
+    </code></pre>
+
+    <h2>Data Types</h2>
+    <p>
+      JavaScript has different types of data:
+    </p>
+    <ul>
+      <li><strong>Strings</strong>: Text (e.g., <code>"Hello"</code>).</li>
+      <li><strong>Numbers</strong>: Integers or decimals (e.g., <code>10</code>, <code>3.14</code>).</li>
+      <li><strong>Booleans</strong>: <code>true</code> or <code>false</code>.</li>
+    </ul>
+    <pre><code>
+let greeting = "Hello, World!"; // String
+let score = 100;                // Number
+let isPassed = true;            // Boolean
+console.log(greeting);          // Output: Hello, World!
+console.log(score);             // Output: 100
+console.log(isPassed);          // Output: true
+    </code></pre>
+
+    <h2>Basic Interaction: Alert, Prompt, and Confirm</h2>
+    <p>
+      JavaScript can interact with the user using:
+    </p>
+    <ul>
+      <li><code>alert()</code>: Displays a message in a popup.</li>
+      <li><code>prompt()</code>: Asks the user for input.</li>
+      <li><code>confirm()</code>: Asks the user to confirm something.</li>
+    </ul>
+    <pre><code>
+alert("Welcome to JavaScript!"); // Displays a popup
+let userName = prompt("What's your name?"); // Asks for input
+let isHappy = confirm("Are you happy?");    // Asks for confirmation
+console.log(userName); // Output: User's input
+console.log(isHappy);  // Output: true or false
+    </code></pre>
+
+    <h2>Exercises</h2>
+    <p>Practice what you've learned with these exercises:</p>
+    <ol>
+      <li><strong>Hello, World!</strong>: Write a script that displays "Hello, World!" in the console.</li>
+      <li><strong>Variables Practice</strong>: Create a variable for your name and age, then log them to the console.</li>
+      <li><strong>User Interaction</strong>: Use <code>prompt()</code> to ask the user for their favorite color, then display it in an <code>alert()</code>.</li>
+    </ol>
+    <p>Download the exercises and starter code from the <a href="https://github.com/earnwong/javascript-basics-course" target="_blank">GitHub Repository</a>.</p>
+
+    <h2>Homework</h2>
+    <ul>
+      <li>Create a simple webpage with a button. When the button is clicked, display an alert with a message.</li>
+      <li>Experiment with <code>console.log()</code> to display different types of data (strings, numbers, booleans).</li>
+    </ul>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>

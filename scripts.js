@@ -34,4 +34,6 @@ const lessons = [
   
   document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded");
-    if (window.location.pathname.in
+    // Call the function to load lessons
+    loadLessons();
+  });
