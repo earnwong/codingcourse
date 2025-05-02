@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Lesson 4: APIs & Async Programming</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>JavaScript Lesson 4: APIs & Async Programming</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+    </nav>
+  </header>
+  <main>
+    <h2>What Are APIs?</h2>
+    <p>
+      APIs (Application Programming Interfaces) let your code communicate with external services.
+      We'll use the <a href="https://catfact.ninja" target="_blank">Cat Facts API</a> for examples.
+    </p>
+
+    <h2>Fetch API Basics</h2>
+    <pre><code>
+// Basic fetch request
+fetch('https://catfact.ninja/fact')
+  .then(response => response.json()) // Convert response to JSON
+  .then(data => {
+    console.log(data.fact); // Output: Random cat fact
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+    </code></pre>
+
+    <h2>Async/Await Syntax</h2>
+    <p>Modern way to handle asynchronous operations:</p>
+    <pre><code>
+async function getCatFact() {
+  try {
+    const response = await fetch('https://catfact.ninja/fact');
+    const data = await response.json();
+    console.log(data.fact);
+  } catch (error) {
+    console.error('Failed to fetch:', error);
+  }
+}
+    </code></pre>
+
+    <h2>Video Tutorial</h2>
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/cuEtnrL9-H0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+
+    <h2>Error Handling</h2>
+    <p>Essential for robust API interactions:</p>
+    <pre><code>
+async function safeFetch(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    console.error('Fetch failed:', error.message);
+    return null;
+  }
+}
+    </code></pre>
+
+    <h2>Exercises</h2>
+    <ol>
+      <li>Fetch and display 3 random cat facts</li>
+      <li>Create error handling for invalid API responses</li>
+      <li>Build a button that loads new facts on click</li>
+    </ol>
+    <p>Starter code on <a href="https://github.com/earnwong/javascript-basics-course" target="_blank">GitHub</a>.</p>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -4,7 +4,8 @@
 const lessons = [
     { id: 1, title: "JavaScript: The Basics"},
     { id: 2, title: "Javascript: Arrays, Objects, Loops, and Functions"},
-    { id: 3, title: "Javascript: DOM Manipulation, Event Handling, and Form Validation"}
+    { id: 3, title: "Javascript: DOM Manipulation, Event Handling, and Form Validation"},
+    { id: 4, title: "Javascript: APIs & Async Programming"}
   ];
   
   // Function to dynamically load lessons
